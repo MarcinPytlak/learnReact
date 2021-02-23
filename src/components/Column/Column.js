@@ -10,10 +10,12 @@ import Icon from '../Icon/Icon';
 
 class Column extends React.Component {
   state = {
+    // eslint-disable-next-line react/prop-types
     cards: this.props.cards || [],
   }
     static propTypes = {
-        title: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      icon: PropTypes.string,
     }
     addCard(title){
       this.setState(state => (
@@ -23,25 +25,25 @@ class Column extends React.Component {
             {
               key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
               title,
-            }
-          ]
+            },
+          ],
         }
       ));
     }
 
-  render() {
-    return (
-      <section className={styles.component}>
-        <h3 className={styles.title}>{this.props.title}<span className={styles.icon}><Icon name={this.props.icon}/></span></h3>
-        {this.state.cards.map(({key, ...cardProps}) => (
-        <Card key={key} {...cardProps} />
-        ))}
-        <div className={styles.creator}>
-          <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
-        </div>
-      </section>
-    )
-  }
+    render() {
+      return (
+        <section className={styles.component}>
+          <h3 className={styles.title}>{this.props.title}<span className={styles.icon}><Icon name={this.props.icon}/></span></h3>
+          {this.state.cards.map(({key, ...cardProps}) => (
+            <Card key={key} {...cardProps} />
+          ))}
+          <div className={styles.creator}>
+            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
+          </div>
+        </section>
+      );
+    }
 }
 
 export default Column;
