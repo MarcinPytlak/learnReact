@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './App.scss';
 import PropTypes from 'prop-types';
 import List from '../List/ListContainer';
-// eslint-disable-next-line no-unused-vars
 
 class App extends React.Component {
   static propTypes = {
