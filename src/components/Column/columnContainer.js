@@ -5,6 +5,7 @@ import {createActionAddCard} from '../../redux/cardsRedux.js';
 
 const mapStateToProps = (state, props) => ({
   cards: getCardsForList(state, props.id),
+  
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
